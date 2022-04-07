@@ -1,0 +1,165 @@
+
+
+void myCode()
+{
+  //----------------------------------------------------------------------------------------
+  // myCode();
+  //
+  // This is the tab where the programming of your vehicle operation is done.
+  // Tab _00_AEV_key_words contains a compiled list of functions/subroutines used for vehicle
+  // operation. 
+  //
+  // Note:
+  // (1) After running your AEV do not turn the AEV off, connect the AEV to a computer, or 
+  //     push the reset button on the Arduino. There is a 13 second processing period. In 
+  //     post processing, data is stored and battery recuperation takes place. 
+  // (2) Time, current, voltage, total marks, position traveled are recorded approximately 
+  //     every 60 milliseconds. This may vary depending on the vehicles operational tasks. 
+  //     It takes approximately 35-40 milliseconds for each recording. Thus when programming,
+  //     code complexity may not be beneficial. 
+  // (3) Always comment your code. Debugging will be quicker and easier to do and will 
+  //     especially aid the instructional team in helping you. 
+  //---------------------------------------------------------------------------------------- 
+
+  // Program between here-------------------------------------------------------------------
+  /*
+  celerate(1,0,15,2.5); // celerate (Motor1, StartSpeed=0, Endspeed=15%, Duration=2.5s)
+  motorSpeed(1,15);     // Set (Motor1, 15% power)
+  goFor(1);             // Continue running motor for 1s
+  brake(1);             // Stop
+
+  celerate(2,0,27,4);   // celerate (Motor2, StartSpeed=0, Endspeed=27%, Duration=4s)
+  motorSpeed(2,27);     // Set (Motor2, 27% power)
+  goFor(2.7);           // Continue running for 2.7s
+  celerate(2,27,15,1);  // celerate (Motor2, Startspeed=27%, Endspeed=15%, Duration=1s)
+  brake(2);             // Brake Motor2
+  reverse(2);           // Reverse direction that Motor2 will spin in
+  celerate(4,0,31,2);   // Accelerate all motors from 0 to 31% power over the duration of 2 seconds
+  motorSpeed(4,35);     // Set all motors at 35% speed
+  goFor(1);             // Cont.
+  brake(2);             // Brake Motor2  
+  motorSpeed(1,35);     // Set Motor1 at 35% speed
+  goFor(3);             // Continue for 3 seconds
+  brake(4);             // Brake all
+  reverse(1);           // Reverse direction of Motor1
+  celerate(1,0,19,2);   // Accelerate Motor1 from 0-19% over 2 seconds
+  motorSpeed(2,35);     // Immediately set Motor2 to 35% speed (No gradual acceleration)
+  goFor(2);             // Both motors will continue going for 2s
+  motorSpeed(4,19);     // Set the speed of all motors to 19 immediately
+  goFor(2);             // Continue for 2s
+  celerate(4,19,0,3);   // Gradually decelerate all motors to 0
+  brake(4);             // Brake all motors and end program.*/
+  /*
+   * -------------------------------------------------------------------
+   * AEV Test Code, Version 1.0
+   * Written February 2nd, 2022 by David Lowry, Drew Reed & Megan Smith
+   * 
+   * Des. A short program to test the AEV concept. The goal is, simply,
+   * for the AEV to go up the track then come back to where it initially
+   * started.
+   * -------------------------------------------------------------------
+   */
+
+// PHASE 1: Uphill run, then stop at maintenance station.
+    rotateServo(60);
+    reverse(1);
+    reverse(4);
+    celerate(4,15,37,2);
+    goToAbsolutePosition(142); 
+
+    reverse(4);
+    motorSpeed(4,51);
+    goFor(.8);
+    
+    brake(4);
+    goFor(3);
+    rotateServo(-20);
+    goFor(3);
+                    
+
+// PHASE 2: Continue and stop before incline.  
+    celerate(4,15,50,3);
+    goFor(1.4);
+    motorSpeed(4,12);
+    goToAbsolutePosition(-112);
+    motorSpeed(4,28);
+    goToAbsolutePosition(-220);
+    brake(4);
+    goFor(6); // Long brake allows for gradual, complete stop.
+
+
+// PHASE 3: Continue uphill then stop.
+    motorSpeed(4,57);
+    goToRelativePosition(-164);
+    //goToRelativePosition(-116);
+    brake(4);
+    goFor(0.1);
+    reverse(4);
+    motorSpeed(4,80);
+    goFor(0.6); // Was 0.6
+    brake(4);
+    goFor(4);
+
+
+// PHASE 4: Go downhill and pause on incline
+    int offset = 8;
+    motorSpeed(4,28);
+    goToRelativePosition(50+offset); // Needs to go to 147 (or 100)
+    motorSpeed(4,0);
+    goToRelativePosition(15); // Coast
+    brake(4);
+    reverse(4);
+    
+    celerate(4,75,48,2);
+    goFor(4);
+    brake(4);
+
+// PHASE 5A:
+    //reverse(4);
+    //motorSpeed(4,26);
+    //goToRelativePosition(130);
+    brake(4);
+    goFor(5);
+    motorSpeed(4,28);
+    goFor(0.7);
+    brake(4);
+    goFor(5);
+    reverse(4);
+
+// PHASE 5B: Continue down and stop at maintanence station.
+    motorSpeed(4,30);
+    goToAbsolutePosition(-95); 
+    brake(4);
+    goFor(4); 
+
+
+// PHASE 6: Go to Grand Canyon station and stop there.
+    celerate(4,15,44,2);
+    goToAbsolutePosition(135); 
+    reverse(4);
+    motorSpeed(4,51);
+    goFor(0.8);
+    
+    brake(4);
+    goFor(4);
+    rotateServo(60);
+
+// PHASE 7: Return to Main. Station
+    celerate(4,15,37,2);
+    goFor(1);
+    brake(4);
+    goFor(1);
+    reverse(4);
+    motorSpeed(4,32);
+    goFor(2);
+    brake(4);
+
+// End of run.
+    
+    
+    
+    
+
+  // And here--------------------------------------------------------------------------------
+
+} // DO NOT REMOVE. end of void myCode()
