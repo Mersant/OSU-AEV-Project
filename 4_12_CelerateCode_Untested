@@ -1,0 +1,140 @@
+
+
+void myCode()
+{
+  //----------------------------------------------------------------------------------------
+  // myCode();
+  //
+  // This is the tab where the programming of your vehicle operation is done.
+  // Tab _00_AEV_key_words contains a compiled list of functions/subroutines used for vehicle
+  // operation. 
+  //
+  // Note:
+  // (1) After running your AEV do not turn the AEV off, connect the AEV to a computer, or 
+  //     push the reset button on the Arduino. There is a 13 second processing period. In 
+  //     post processing, data is stored and battery recuperation takes place. 
+  // (2) Time, current, voltage, total marks, position traveled are recorded approximately 
+  //     every 60 milliseconds. This may vary depending on the vehicles operational tasks. 
+  //     It takes approximately 35-40 milliseconds for each recording. Thus when programming,
+  //     code complexity may not be beneficial. 
+  // (3) Always comment your code. Debugging will be quicker and easier to do and will 
+  //     especially aid the instructional team in helping you. 
+  //---------------------------------------------------------------------------------------- 
+
+  // Program between here-------------------------------------------------------------------
+
+// Pusher is most efficient at 35 or 50%
+// Puller is most efficient at 30-40%
+
+// When viewing AEV from front on track, motor1 is in the back and motor2 is in the front.
+
+// PHASE 1: Uphill run, then stop at maintenance station.
+// For this section, motor1 is puller and motor2 is pusher.
+    rotateServo(60);
+    reverse(1);
+    reverse(4);
+
+    celerate(4,15,42,2);
+    goToAbsolutePosition(123); 
+
+    reverse(4);
+    motorSpeed(4,51);
+    goFor(.8);
+    
+    brake(4);
+    goFor(3);
+    rotateServo(-20);
+    goFor(3);
+                    
+
+// PHASE 2: Continue and stop before incline.  
+// Motor1 is now pusher, motor2 is now puller
+    celerate(4,15,32,3);
+    goToAbsolutePosition(-300);
+    reverse(4);
+    motorSpeed(4,50);
+    goFor(1);
+
+
+// PHASE 3: Continue uphill then stop.
+    motorSpeed(4,57);
+    goToRelativePosition(-164);
+    //goToRelativePosition(-116);
+    brake(4);
+    goFor(0.1);
+    reverse(4);
+    motorSpeed(4,80);
+    goFor(0.6); // Was 0.6
+    brake(4);
+    goFor(4);
+
+
+// PHASE 4: Go downhill and pause on incline
+    int offset = 8;
+    motorSpeed(4,28);
+    goToRelativePosition(50+offset); // Needs to go to 147 (or 100)
+    motorSpeed(4,0);
+    goToRelativePosition(15); // Coast
+    brake(4);
+    reverse(4);
+    
+    celerate(4,75,48,2);
+    goFor(4);
+
+// PHASE 5A:
+    brake(4);
+    celerate(4,15,18,2);
+    goToRelativePosition(160);
+    reverse(4);
+    motorSpeed(4,50);
+    goFor(1);
+    reverse(4);
+
+// PHASE 5B: Continue down and stop at maintanence station.
+// For this section, motor1 is puller and motor2 is pusher.
+    celerate(4,15,32);
+    goToAbsolutePosition(-65); 
+    brake(4);
+    motorSpeed(4,0);
+    goToAbsolutePosition(-40);
+    reverse(4);
+    motorSpeed(4,52);
+    goFor(1);
+    brake(4);
+    goFor(4); 
+
+
+// PHASE 6: Go to Grand Canyon station and stop there.
+    reverse(4);
+
+    celerate(4,15,32,3);
+    goToAbsolutePosition(135); 
+
+    reverse(4);
+    motorSpeed(4,51);
+    goFor(1);
+    
+    brake(4);
+    goFor(3);
+    rotateServo(60);
+    goFor(3);
+
+// PHASE 7: Return to Main. Station
+    celerate(4,15,30,2);
+    goToAbsolutePosition(25);
+    reverse(4);
+    motorSpeed(4,0);
+    goToAbsolutePosition(10);
+    motorSpeed(4,50);
+    goFor(.8);
+    brake(4);
+
+// End of run.
+    
+    
+    
+    
+
+  // And here--------------------------------------------------------------------------------
+
+} // DO NOT REMOVE. end of void myCode()
