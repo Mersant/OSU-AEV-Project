@@ -12,7 +12,7 @@ This project is managed by Mersant. You can find me on GitHub at https://github.
 ### License
 All Rights Reserved
 
-Copyright (c) 2021 David Lowry, Ben Bazan, Eric Gordon
+Copyright (c) 2021 David Lowry, Drew Reed, Megan Smith
 
 Created by Techcable
 
