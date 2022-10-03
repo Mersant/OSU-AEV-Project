@@ -4,7 +4,7 @@
 ## Description
 This is the code for the AEV project me and my group completed for our Fundamentals of Engineering II class during the spring of 2022. We designed a small AEV
 (Alternative Energy Vehicle) in SolidWorks and then we built and tested it. The AEV was controlled by an Arduino, which we programmed using C++ to collect data
-and drive the AEV down a scale model track.
+and drive the AEV down a scale model track. To process the collected data, I wrote a program in MATLAB that could load a given file and convert the data into usable units of data like Joules and meters per second. 
 
 ## Questions
 This project is managed by Mersant. You can find me on GitHub at https://github.com/Mersant
