@@ -2,9 +2,9 @@
 [![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-blue)](./LICENSE)
 
 ## Description
-This is the code for the AEV project me and my group completed for our Fundamentals of Engineering II class during the spring of 2022. We designed a small AEV
-(Alternative Energy Vehicle) in SolidWorks and then we built and tested it. The AEV was controlled by an Arduino, which we programmed using C++ to collect data
-and drive the AEV down a scale model track. To process the collected data, I wrote a program in MATLAB that could load a given file and convert the data into usable units of data like Joules and meters per second. 
+![IMG_2282 1237](https://user-images.githubusercontent.com/102173297/194734128-d736a841-7e91-4569-937b-43371be1f73b.jpg)
+
+This repository contains backup code from various days for the AEV project me and my group completed for our Fundamentals of Engineering II class during the spring of 2022. We designed a small AEV (Alternative Energy Vehicle) in SolidWorks, and then we built and tested it. The AEV was controlled by an Arduino, which we programmed using C++ to collect data and drive the AEV down a scale model track. To process the collected data, I wrote a program in MATLAB that could load a given file and convert the data into usable units of data like Joules and meters per second. 
 
 ## Questions
 This project is managed by Mersant. You can find me on GitHub at https://github.com/Mersant
